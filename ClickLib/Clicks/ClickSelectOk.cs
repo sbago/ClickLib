@@ -1,11 +1,19 @@
 using System;
-
+using System.Runtime.InteropServices;
 using ClickLib.Attributes;
 using ClickLib.Bases;
 using FFXIVClientStructs.FFXIV.Client.UI;
+using FFXIVClientStructs.FFXIV.Component.GUI;
 
 namespace ClickLib.Clicks;
 
+[StructLayout(LayoutKind.Explicit, Size = 0x2A8)]
+public unsafe struct AddonSelectOk
+{
+    [FieldOffset(0x0)] public AtkUnitBase AtkUnitBase;
+    [FieldOffset(0x220)] public AtkTextNode* PromptText;
+    [FieldOffset(0x228)] public AtkComponentButton* OkButton;
+}
 /// <summary>
 /// Addon SelectOk.
 /// </summary>
